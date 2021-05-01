@@ -9,15 +9,18 @@ class MaximumDiversityProblem {
   private:
     int n_;                               //número de elementos
     int k_;                               //número de dimensiones de los elementos
-    std::vector<Element> s_;              //conjunto de elementos
+    int m_;                               //tamaño del subconjunto de la solución
+    std::vector<Element*> s_;              //conjunto de elementos
     std::vector<std::vector<double>> d_;  //matriz de distancias entre elementos
 
-    void calculateDistances();
+    //void calculateDistances();
   public:
-    MaximumDiversityProblem(std::string& fileName);
+    MaximumDiversityProblem(std::string& fileName, int m);
     ~MaximumDiversityProblem();
     void print();
-    std::vector<Element> getS();
+    std::vector<Element*> getS();
+    int getM();
+    int getK();
 };
 
 #endif

@@ -6,6 +6,21 @@ class GreedyAlgorithm: public Strategy {
   public:
     GreedyAlgorithm()=default;
     ~GreedyAlgorithm()=default;
-    std::vector<Element> solve(MaximumDiversityProblem& problem);
-    Element gravityCenter(std::vector<Element>& elementSet);
+    /**
+     * @brief Solve the problem
+     * 
+     * @param problem 
+     * @return std::vector<Element> 
+     */
+    std::vector<Element*> solve(MaximumDiversityProblem& problem);
+    /**
+     * @brief Calculate the element of the vector that is farthest from the center
+     * of gravity, removes it from the vector and returns it
+     * 
+     * @param elementSet 
+     * @return Element 
+     */
+    Element* extractFarthest(std::vector<Element*>& elementSet, Element& center);
+
+    
 };
