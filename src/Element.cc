@@ -25,7 +25,7 @@ int Element::dimensions() {
 void Element::print() {
   std::cout << "[ ";
   for (int i = 0; i < dimensions(); i++) {
-    std::cout << coordinates_[i] << ((i == dimensions() - 1)? " " : " ; ");
+    std::cout << coordinates_[i] << ((i == dimensions() - 1)? " " : ", ");
   }
   std::cout << "]";
 }
