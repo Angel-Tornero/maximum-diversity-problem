@@ -21,6 +21,7 @@ class MaximumDiversityProblem {
     std::vector<Element*> getS();
     int getM();
     int getK();
+    void setElementsAsNonChosen();
 };
 
 #endif

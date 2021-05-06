@@ -70,3 +70,9 @@ int MaximumDiversityProblem::getM() {
 int MaximumDiversityProblem::getK() {
   return k_;
 }
+
+void MaximumDiversityProblem::setElementsAsNonChosen() {
+  for (int i = 0; i < s_.size(); i++) {
+    if (s_[i]->isChosen()) s_[i]->toggleChosen();
+  }
+}
