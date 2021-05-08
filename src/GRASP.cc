@@ -56,11 +56,12 @@ Element* GRASP::extractFarthest(std::vector<Element*>& elementSet, Element& cent
     farthestElement->toggleChosen();
     LRC.push_back(farthestElement);
   }
-  for (int i = 0; i < LRC.size(); i++) {
-    LRC[i]->toggleChosen();
-  }
   int randomIndex = rand() % LRC.size();
   Element* randomElement = LRC[randomIndex];
+  for (int i = 0; i < LRC.size(); i++) {
+    if (i == randomIndex) continue;
+    LRC[i]->toggleChosen();
+  }
   return randomElement;
 }
 
