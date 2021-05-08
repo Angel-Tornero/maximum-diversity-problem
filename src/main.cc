@@ -5,7 +5,7 @@
 #include <chrono>
 
 int main(int argc, char* argv[]) {
-  std::vector<std::string> problems = {"max_div_15_2", "max_div_20_2", "max_div_30_2"};//, "max_div_15_3", "max_div_20_3", "max_div_30_3"};
+  std::vector<std::string> problems = {"max_div_15_3", "max_div_20_3", "max_div_30_3"};//, "max_div_15_3", "max_div_20_3", "max_div_30_3"};
   std::vector<int> ms = {2, 3, 4, 5};
   std::vector<int> lrcsizes = {2, 3};
   std::cout << "| Problema | n | k | m | Iter | |LRC| | z | S | CPU |\n|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|\n";
