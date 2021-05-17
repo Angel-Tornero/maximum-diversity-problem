@@ -50,3 +50,11 @@ max_div_30_3|30|3|5|10|2|99.592|{ [ 1.53, 8.09, 9.56 ], [ 6.75, 0.07, 1.8 ], [ 7
 max_div_30_3|30|3|5|10|3|99.592|{ [ 8.06, 9.59, 0.27 ], [ 1.53, 8.09, 9.56 ], [ 8.32, 0.47, 8.98 ], [ 7.54, 8.93, 9.66 ], [ 6.75, 0.07, 1.8 ] }|4.67966 ms
 max_div_30_3|30|3|5|20|2|99.592|{ [ 1.53, 8.09, 9.56 ], [ 6.75, 0.07, 1.8 ], [ 7.54, 8.93, 9.66 ], [ 8.06, 9.59, 0.27 ], [ 8.32, 0.47, 8.98 ] }|9.43731 ms
 max_div_30_3|30|3|5|20|3|99.592|{ [ 8.06, 9.59, 0.27 ], [ 1.53, 8.09, 9.56 ], [ 8.32, 0.47, 8.98 ], [ 7.54, 8.93, 9.66 ], [ 6.75, 0.07, 1.8 ] }|10.3811 ms
+
+## Conclusiones
+
+- Se puede observar como en la mayoría de ocasiones, la solución que encuentra GRASP es mejor que la que encuentra el algoritmo Greedy.
+
+- A pesar de que el valor de |LRC| es lo que marca la diferencia en muchos de los problemas de la prueba, no podemos afirmar que exista un valor de |LRC| que mejore siempre los datos ya que dependiendo del problema es mejor utilizar 2 o 3.
+
+- En este caso, podemos ver que aumentar el número de iteraciones no implica obtener una solución mejor.

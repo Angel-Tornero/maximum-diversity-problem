@@ -1,11 +1,12 @@
 #include "../include/MaximumDiversityProblem.h"
 #include "../include/GreedyAlgorithm.h"
 #include "../include/GRASP.h"
+#include "../include/RamificacionPoda.h"
 #include <iostream>
 #include <chrono>
 
 int main(int argc, char* argv[]) {
-  std::vector<std::string> problems = {"max_div_15_3", "max_div_20_3", "max_div_30_3"};//, "max_div_15_3", "max_div_20_3", "max_div_30_3"};
+  /*std::vector<std::string> problems = {"max_div_15_3", "max_div_20_3", "max_div_30_3"};//, "max_div_15_3", "max_div_20_3", "max_div_30_3"};
   std::vector<int> ms = {2, 3, 4, 5};
   std::vector<int> lrcsizes = {2, 3};
   std::cout << "| Problema | n | k | m | Iter | |LRC| | z | S | CPU |\n|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|\n";
@@ -34,7 +35,21 @@ int main(int argc, char* argv[]) {
         }
       }
     }
-  }
+  }*/
+  std::string file = "problems/max_div_15_2.txt";
+  MaximumDiversityProblem problem(file, 4);
+  
+  Strategy* algoritmo = new GreedyAlgorithm;
+  std::vector<Element*> initialSolution = algoritmo->solve(problem);
+  algoritmo = new RamificacionPoda(initialSolution);
 
+  std::vector<Element*> solution = algoritmo->solve(problem);
+  for (int i = 0; i < solution.size(); i++) {
+    solution[i]->print();
+    std::cout << ((i == solution.size() - 1) ? " " : ", ");
+  }
+  std::cout << '\n';
+  std::cout << "z = " << algoritmo->calculateZ(solution) << '\n';
+  delete algoritmo;
   return 0;
 }

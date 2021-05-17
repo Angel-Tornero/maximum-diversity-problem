@@ -9,7 +9,7 @@ Element Strategy::calculateGravityCenter(std::vector<Element*>& elementSet, int 
       centerCoordinates[i] += elementSet[j]->getCoordinate(i) / elementSet.size();
     }
   }
-  return Element(centerCoordinates);
+  return Element(centerCoordinates, 0);
 }
 
 double Strategy::calculateDistance(Element* elementA, Element* elementB) {

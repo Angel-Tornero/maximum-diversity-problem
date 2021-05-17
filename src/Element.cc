@@ -3,11 +3,14 @@
 
 Element::Element() {
   chosen_ = false;
+  selected_ = false;
 }
 
-Element::Element(std::vector<double> coordinates) {
+Element::Element(std::vector<double> coordinates, int id) {
   coordinates_ = coordinates;
+  id_ = id;
   chosen_ = false;
+  selected_ = false;
 }
 
 void Element::setCoordinate(int coordinate, double value) {
@@ -34,6 +37,18 @@ bool Element::isChosen() {
   return chosen_;
 }
 
+bool Element::isSelected() {
+  return selected_;
+}
+
 void Element::toggleChosen() {
   chosen_ = !chosen_;
+}
+
+void Element::toggleSelected() {
+  selected_ = !selected_;
+}
+
+int Element::getId() {
+  return id_;
 }

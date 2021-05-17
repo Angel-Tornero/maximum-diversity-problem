@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include "Element.h"
+#include "Node.h"
 
 #ifndef _PROBLEM_
 #define _PROBLEM_
@@ -22,6 +23,8 @@ class MaximumDiversityProblem {
     int getM();
     int getK();
     void setElementsAsNonChosen();
+
+    std::vector<Node*> generateTree();
 };
 
 #endif
