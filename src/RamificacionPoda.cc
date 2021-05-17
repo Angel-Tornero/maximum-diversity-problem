@@ -5,6 +5,7 @@
 
 RamificacionPoda::RamificacionPoda(std::vector<Element*> initialSolution) {
   initialSolution_ = initialSolution;
+  generated_ = 1;
 }
 
 std::vector<Element*> RamificacionPoda::solve(MaximumDiversityProblem& problem) {
@@ -25,6 +26,7 @@ std::vector<Element*> RamificacionPoda::solve(MaximumDiversityProblem& problem) 
       tree[tree.size() - 1]->prune();
     }
     changeSelected(temp);
+    generated_++;
   }
   for (int i = 1; i < problem.getM(); i++) {
     counter = 0;
@@ -32,10 +34,10 @@ std::vector<Element*> RamificacionPoda::solve(MaximumDiversityProblem& problem) 
       if (tree[j]->isPruned()) {
         for (int k = tree[j]->label_; k <= problem.getS().size() - (problem.getM() - tree[j]->k_); k++) {
           tree.push_back(new Node());
+          counter++;
         }
         continue;
       }
-      double lowerUpperBound = 0;
       for (int k = tree[j]->label_; k <= problem.getS().size() - (problem.getM() - tree[j]->k_); k++) {
         std::vector<Element*> temp = tree[j]->partialSolution_;
         temp.push_back(problem.getS()[k]);
@@ -44,19 +46,17 @@ std::vector<Element*> RamificacionPoda::solve(MaximumDiversityProblem& problem) 
         if (calculateUpperBound(temp, problem.getS(), problem.getM()) < lowerBound) {
           tree[tree.size() - 1]->prune();
         }
+        generated_++;
         changeSelected(temp);
         counter++;
       }
-    }
-    if (i + 1 == problem.getM()) {
-      break;
     }
     levelIni = nextLevel;
     nextLevel += counter;
   }
   double bestZ = 0;
   std::vector<Element*> bestSolution;
-  for (int i = 0; i < tree.size(); i++) {
+  for (int i = levelIni; i < nextLevel; i++) {
     if (tree[i]->isPruned()) continue;
     double newZ = calculateZ(tree[i]->partialSolution_);
     if (newZ > bestZ) {
@@ -146,4 +146,8 @@ void RamificacionPoda::changeSelected(std::vector<Element*> elementSet) {
   for (int i = 0; i < elementSet.size(); i++) {
     elementSet[i]->toggleSelected();
   }
+}
+
+int RamificacionPoda::getGenerated() {
+  return generated_;
 }
