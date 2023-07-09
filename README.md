@@ -1,1 +1,3 @@
 # maximum-diversity-problem
+
+test
